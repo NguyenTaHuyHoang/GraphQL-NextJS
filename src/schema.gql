@@ -19,3 +19,19 @@ type Query {
   getUserById(id: Int!): User
   getUsers: [User!]!
 }
+
+type Mutation {
+  createUser(createUserInput: createUserInput!): User!
+  createUserSettings(createUserSettingsInput: createUserSettingsInput!): UserSetting!
+}
+
+input createUserInput {
+  userName: String!
+  displayName: String
+}
+
+input createUserSettingsInput {
+  userId: Int!
+  receiveNotifications: Boolean = false
+  receiveEmails: Boolean = false
+}
